@@ -59,6 +59,12 @@ class Appliance:
 			if 'Duration' in self.attributes:
 				time.sleep(self.attributes['Duration'])
 				GPIO.output(self.pin, original_state)
+			if 'Off' in self.attributes:
+				time.sleep(self.attributes['Off'])
+				GPIO.output(self.pin, 0)
+			if 'On' in self.attributes:
+				time.sleep(self.attributes['On'])
+				GPIO.output(self.pin, 1)
 		if self.type == 'Script' and self.action:
 			if self.getState():
 				subprocess.call([self.off_cmd], shell=True)
