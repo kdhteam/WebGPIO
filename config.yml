@@ -5,11 +5,17 @@ Rooms:
       - Name: Pump
         Type: GPIO
         Pin: 17
-        Off: 10
-        On:  10
       - Name: Light
         Type: GPIO
         Pin: 27
+  - Name: Auto
+    Appliances:
+      - Name: Auto Pump
+        Type: Script
+        Status: test -f ${HOME}/WebGPIO/auto_on > /dev/null
+        Action:
+          On: touch ${HOME}/WebGPIO/auto_on
+          Off: rm ${HOME}/WebGPIO/auto_on
   # - Name: Scripts
   #   Appliances:
   #     - Name: Internet
