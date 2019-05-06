@@ -2,14 +2,15 @@ from gpiozero import LED
 from time import sleep
 
 pump = LED(17)
-
+on_time = 2
+off_time = 5
 while True:
     try:
         fh = open('auto_on', 'r')
         pump.on()
-        sleep(60)
+        sleep(on_time * 60)
         pump.off()
-        sleep(30)
+        sleep(off_time * 60)
     # Store configuration file values
     except FileNotFoundError:
             # Keep preset values
