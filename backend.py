@@ -82,6 +82,7 @@ def logout():
 	return response
 
 if __name__ == "__main__":
+	subprocess.run(['python3','loop.py'])
 	if settings['SSL']['Enabled']:
 		app.run(host = settings['Host'], 
 				port = settings['Port'], 

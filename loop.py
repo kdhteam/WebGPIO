@@ -3,7 +3,7 @@ from time import sleep
 
 pump = LED(17)
 on_time = 2
-off_time = 5
+off_time = 2
 while True:
     try:
         fh = open('auto_on', 'r')
@@ -14,4 +14,4 @@ while True:
     # Store configuration file values
     except FileNotFoundError:
             # Keep preset values
-        sleep(30)
+        sleep(10)
