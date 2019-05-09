@@ -1,6 +1,5 @@
 import datetime
 import json
-import subprocess
 from flask import Flask, render_template, request, redirect, Markup, make_response, url_for
 from lib.cors import crossdomain
 from lib.setup import rooms, settings
@@ -91,7 +90,6 @@ def logout():
 
 
 if __name__ == "__main__":
-    subprocess.run(['python3', 'loop.py' , '&'])
     if settings['SSL']['Enabled']:
         app.run(host=settings['Host'],
                 port=settings['Port'],
